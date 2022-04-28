@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "26507b54-7725-4162-946b-cacceb2245f1",
+		"name": "JSON Transformation",
+		"description": "This collection is to see the filtered/reduced JSON based on the input fiters.We are using JSON Path to find out the nested attribute & adding them in the output JSON.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET- Filtered JSON",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n  \"filters\":\"$.catalogVersion,$.productContentQuality,$.lastEditedTime,$.isSupplierImagesAvailable,$.lastEditedUser,$.dueDateRequiresEval,$.isSupplierContentAvailable,$.hasImportErrors,$.shortCode,$.images[0].clippingPath,$.images[2].modifiedTime,$.images[*].index,$.images[*].url,$.offlineDate,$.classificationAttributeList[0].fullQualifier\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:9192//transform",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9192",
+					"path": [
+						"",
+						"transform"
+					]
+				},
+				"description": "This request takes a comma seperated JSON Paths and look for the matching attribute,collect all matching attributes and build a reduced/filtered JSON as a output.\r\n\r\nThis API is internally calling an external API from where it takes the input JSON."
+			},
+			"response": []
+		}
+	]
+}
